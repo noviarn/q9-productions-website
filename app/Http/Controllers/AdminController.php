@@ -149,9 +149,11 @@ class AdminController extends Controller
     }
     public function storeourClient(Request $request)
     {
+        
         $validatedData = $request->validate([
             'img_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'nama_client' => 'required',
+            'user_id' => 'required|exists:users,id',
             
         ]);
         if ($request->hasFile('img_logo')) {
