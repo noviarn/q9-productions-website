@@ -15,7 +15,7 @@
             <label for="nama_client">Nama client:</label>
           </div>
           <div class="input">
-            <input type="text" name="judul_konten" id="judul_konten">
+            <input type="text" name="nama_client" id="nama_client">
           </div>
         </div>
         <div class="form-field">
@@ -40,6 +40,38 @@
         </form>
       </div>
   </div>
+</div>
+<div class="report-container" >
+    <table>
+      <tr class="report-header report-topic-heading">
+        <th class="t-op">Logo</th>
+        <th class="t-op">Nama Client</th>
+        <th class="t-op">show</th>
+        <th class="t-op">action</th>
+      </tr>
+      @foreach($clients as $client)
+      <tr>
+        <td class="t-op-nextlvl td-client"><img src="{{ asset('/images/'.$client->img_logo.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
+        <td class="t-op-nextlvl td-client">{{ $client->nama_client }}</td>
+        <td class="t-op-nextlvl td-client">
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+        <td class="t-op-nextlvl td-client">
+          <a href="/manage-post-page/{{$client->id}}/edit" style="background-color: #e7e7e7; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
+            <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
+          </a>
+          <a href="/manage-post-page/{{$client->id}}/delete" style="background-color: #e7e7e7;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
+            <img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20">
+          </a>
+        </td>
+      </tr>
+      @endforeach
+    </table>
+
+
 </div>
 @stop
 <script>
@@ -71,5 +103,27 @@
       }
     }
 
+  }
+  function previewImage(event, previewContainerId) {
+    var imageInput = event.target;
+    var imagePreviewContainer = document.getElementById(previewContainerId);
+    imagePreviewContainer.innerHTML = '';
+
+    if (imageInput.files && imageInput.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        var imagePreview = document.createElement('img');
+        imagePreview.src = e.target.result;
+        imagePreview.alt = 'Image Preview';
+        imagePreview.style.maxWidth = '230px';
+        imagePreview.style.height = '90%';
+        imagePreview.style.margin = '0px 20px 20px 20px';
+        imagePreview.style.objectFit = 'cover';
+        imagePreviewContainer.appendChild(imagePreview);
+      };
+
+      reader.readAsDataURL(imageInput.files[0]);
+    }
   }
 </script>
