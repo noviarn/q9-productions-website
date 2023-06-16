@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Konten;
 use App\Models\About;
 use App\Models\Gallery;
@@ -141,4 +142,28 @@ class AdminController extends Controller
         $about->save();
         return view('admin.setting-about-admin', compact(['about']));
     }
+    public function ourClient(){
+        $userId = Auth::id();
+        $clients = Client::all();
+        return view('admin.our-client', compact('userId', 'clients'));
+    }
+    public function storeourClient(Request $request)
+    {
+        $validatedData = $request->validate([
+            'img_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'nama_client' => 'required',
+            
+        ]);
+        if ($request->hasFile('img_logo')) {
+            $image = $request->file('img_logo');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $validatedData['img_logo'] = $imageName;
+        }
+       Client::create($validatedData);
+        
+        return redirect()->back();
+        // Redirect or perform additional actions as needed
+    }
+
 }

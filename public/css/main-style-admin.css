@@ -276,7 +276,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 20px 20px 10px 20px;
-border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+border-bottom: 2px solid rgba(26 60, 120, 0.59);
 }
 
 .recent-Articles {
@@ -289,7 +289,7 @@ color: #5500cb;
 height: 35px;
 width: 190px;
 border-radius: 8px;
-background-color: #5500cb;
+background-color: #1A5AA0;
 color: white;
 font-size: 15px;
 border: none;
@@ -630,3 +630,4 @@ background-color: #eee;
 		color:#1A5AA0;
 		text-decoration: none;
 	  }
+	  
