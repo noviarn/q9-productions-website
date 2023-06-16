@@ -60,4 +60,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Contact::class, 'user_id');
     }
+    public function clients()
+    {
+        return $this->hasMany(Konten::class, 'user_id');
+    }
 }

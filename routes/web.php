@@ -32,7 +32,8 @@ Route::group(['middleware'=>['auth','cekRole:admin']],function(){
     Route::get('/manage-post-page/{id}/delete',[AdminController::class, 'KontenDelete']);
     Route::get('/manage-post-page/{id}/edit',[AdminController::class, 'KontenEdit']);
     Route::post('/manage-post-page/{id}/update', [AdminController::class, 'KontenUpdate'])->name('kontens.update');
-
+    Route::get('/our-client', [AdminController::class, 'ourClient'])->name('ourClient');
+    Route::post('/our-client', [AdminController::class, 'storeourClient'])->name('clients.store');
     Route::get('/setting-home-admin',[AdminController::class, 'settingHome']);
     Route::get('/setting-about-admin',[AdminController::class, 'settingAbout']);
     Route::post('/setting-about-admin/editAbout/{id}/update',[AdminController::class, 'editAbout'])->name('about.post');

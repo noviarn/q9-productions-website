@@ -2,7 +2,7 @@
 @section('main')
 <div class="report-container">
   <div class="report-header">
-      <h1 class="recent-Articles">Post Content</h1>
+      <h1 class="recent-Articles text-menu">Post Content</h1>
       <img class="add-show" onclick="addcontent()" width="150" height="45" src="{{ asset('/img/button-addcontent.png') }}">
   </div>
   <div class="report-body" style="display: none;">
