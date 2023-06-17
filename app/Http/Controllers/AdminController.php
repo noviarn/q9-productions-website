@@ -25,7 +25,10 @@ class AdminController extends Controller
         $kontens = Konten::all();
         return view('admin.managepost', compact('userId', 'kontens'));
     }
-    
+    public function KontenAdd(){
+        
+        return view('admin.managepostAdd');
+    }
     public function storeKonten(Request $request)
     {
         $validatedData = $request->validate([
@@ -44,7 +47,7 @@ class AdminController extends Controller
         }
         Konten::create($validatedData);
         
-        return redirect()->back();
+        return redirect('/manage-post-page');
         // Redirect or perform additional actions as needed
     }
     public function KontenDelete($id)

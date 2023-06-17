@@ -3,12 +3,12 @@
 <div class="report-container">
   <div class="report-header">
       <h1 class="recent-Articles text-menu">Post Content</h1>
-      <a href="/manage-post-page/add" style="background-color: #11D900; height: 40px !important; border-style:none; border-radius:8px; padding: 10px; display: inline-flex; align-items: center; text-decoration: none;">
-        <img src="{{ asset('/img/icon-plus.png') }}" style="margin-right: 5px;" width="20" height="20">
-        <span style="color: black; font-size: 14px;"><strong>Add Content</strong></span>
+      <a href="/manage-post-page" style="background-color: #D9D9D9; height: 40px !important; border-style:none; border-radius:8px; padding: 10px; display: inline-flex; align-items: center; text-decoration: none;">
+        <img src="{{ asset('/img/icon-multiply.png') }}" style="margin-right: 5px;" width="20" height="20">
+        <span style="color: black; font-size: 14px;"><strong>Cancel</strong></span>
       </a>
   </div>
-  <!-- <div class="report-body" style="display: none;">
+  <div class="report-body" >
       <div class="container">
         <h2>Create a New Content</h2>
         <form action="{{ route('kontens.store') }}" method="POST" enctype="multipart/form-data">
@@ -69,63 +69,9 @@
           </div>
         </form>
       </div>
-  </div> -->
-  <table>
-      <tr class="report-header report-topic-heading">
-        <th class="t-op">Judul</th>
-        <th class="t-op">Author</th>
-        <th class="t-op">Image</th>
-        <th class="t-op">Status</th>
-        <th class="t-op">Action</th>
-      </tr>
-      @foreach($kontens as $konten)
-      <tr>
-        <td class="t-op-nextlvl">{{ $konten->judul_konten }}</td>
-        <td class="t-op-nextlvl">{{ $konten->Author }}</td>
-        <td class="t-op-nextlvl"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-        <td class="t-op-nextlvl">Publish</td>
-        <td class="t-op-nextlvl">
-          <a href="/manage-post-page/{{$konten->id}}/edit" style="background-color: #F0C965; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
-            <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
-          </a>
-          <a href="/manage-post-page/{{$konten->id}}/delete" style="background-color: #F24949;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
-            <img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20">
-          </a>
-        </td>
-      </tr>
-      @endforeach
-    </table>
+  </div>
 
 </div>
-<!-- <div class="report-container" >
-    <table>
-      <tr class="report-header report-topic-heading">
-        <th class="t-op">Judul</th>
-        <th class="t-op">Author</th>
-        <th class="t-op">Image</th>
-        <th class="t-op">Status</th>
-        <th class="t-op">Action</th>
-      </tr>
-      @foreach($kontens as $konten)
-      <tr>
-        <td class="t-op-nextlvl">{{ $konten->judul_konten }}</td>
-        <td class="t-op-nextlvl">{{ $konten->Author }}</td>
-        <td class="t-op-nextlvl"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-        <td class="t-op-nextlvl">Publish</td>
-        <td class="t-op-nextlvl">
-          <a href="/manage-post-page/{{$konten->id}}/edit" style="background-color: #F0C965; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
-            <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
-          </a>
-          <a href="/manage-post-page/{{$konten->id}}/delete" style="background-color: #F24949;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
-            <img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20">
-          </a>
-        </td>
-      </tr>
-      @endforeach
-    </table>
-
-
-</div> -->
 
 @stop
 <script>
