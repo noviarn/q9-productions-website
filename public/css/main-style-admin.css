@@ -352,7 +352,7 @@ table {
   }
   .upload-files-container {
 	background-color: #ffffff;
-	width: 240px;
+	width: 500px;
 
 	border-radius: 5px;
 	display: flex;
@@ -368,6 +368,7 @@ table {
     position: relative;
     display: inline-block;
     overflow: hidden;
+
   }
   .image-upload input[type="file"] {
     display: none;

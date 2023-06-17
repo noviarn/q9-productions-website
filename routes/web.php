@@ -28,6 +28,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::group(['middleware'=>['auth','cekRole:admin']],function(){
     Route::get('/dashboard-admin', [AdminController::class, 'index'])->name('dashboard-admin');
     Route::get('/manage-post-page', [AdminController::class, 'managepostPage'])->name('managepostPage');
+    Route::get('/manage-post-page/add', [AdminController::class, 'KontenAdd'])->name('kontens.add');
     Route::post('/manage-post-form', [AdminController::class, 'storeKonten'])->name('kontens.store');
     Route::get('/manage-post-page/{id}/delete',[AdminController::class, 'KontenDelete']);
     Route::get('/manage-post-page/{id}/edit',[AdminController::class, 'KontenEdit']);

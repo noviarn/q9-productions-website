@@ -3,7 +3,10 @@
 <div class="report-container">
   <div class="report-header">
       <h1 class="recent-Articles text-menu">Our Client</h1>
-      <img class="add-show" onclick="addclient()" width="150" height="45" src="{{ asset('/img/button-addcontent.png') }}">
+      <a href="/manage-post-page/add" style="background-color: #11D900; height: 40px !important; border-style:none; border-radius:8px; padding: 10px; display: inline-flex; align-items: center; text-decoration: none;">
+        <img src="{{ asset('/img/icon-plus.png') }}" style="margin-right: 5px;" width="20" height="20">
+        <span style="color: black; font-size: 14px;"><strong>Add Client</strong></span>
+      </a>
   </div>
   <div class="report-body" style="display: none;">
       <div class="container">
@@ -40,9 +43,7 @@
         </form>
       </div>
   </div>
-</div>
-<div class="report-container" >
-    <table>
+  <table>
       <tr class="report-header report-topic-heading">
         <th class="t-op">Logo</th>
         <th class="t-op">Nama Client</th>
@@ -70,6 +71,9 @@
       </tr>
       @endforeach
     </table>
+</div>
+<div class="report-container" >
+    
 
 
 </div>
@@ -116,8 +120,8 @@
         var imagePreview = document.createElement('img');
         imagePreview.src = e.target.result;
         imagePreview.alt = 'Image Preview';
-        imagePreview.style.maxWidth = '230px';
-        imagePreview.style.height = '90%';
+        imagePreview.style.maxWidth = '500px';
+        imagePreview.style.minheight = '500px';
         imagePreview.style.margin = '0px 20px 20px 20px';
         imagePreview.style.objectFit = 'cover';
         imagePreviewContainer.appendChild(imagePreview);
