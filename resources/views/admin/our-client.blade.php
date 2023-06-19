@@ -55,8 +55,8 @@
     <tbody>
       @foreach($clients as $client)
       <tr>
-        <td class="column1-client t-op-nextlvl"><img src="{{ asset('/images/'.$client->img_logo.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-        <td class="column2-client t-op-nextlvl">{{ $client->nama_client }}</td>
+        <td class="column1-client t-op-nextlvl"><img src="{{ asset('/images/'.$client->img_logo.'') }}" style="width: 80px; height: 80px; object-fit: contain;"></td>
+        <td class="column2-client t-op-nextlvl" style="max-width: 350px;word-wrap: break-word;">{{ $client->nama_client }}</td>
         <td class="column3-client t-op-nextlvl">
           <label class="switch">
             <input type="checkbox">
@@ -64,10 +64,10 @@
           </label>
         </td>
         <td class="column4-client t-op-nextlvl">
-          <a href="/manage-post-page/{{$client->id}}/edit" style="background-color: #e7e7e7; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
+          <a href="/our-client/{{$client->id}}/edit" style="background-color: #e7e7e7; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
             <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
           </a>
-          <a href="/manage-post-page/{{$client->id}}/delete" style="background-color: #e7e7e7;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
+          <a href="/our-client/{{$client->id}}/delete" style="background-color: #e7e7e7;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
             <img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20">
           </a>
         </td>

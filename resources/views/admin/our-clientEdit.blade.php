@@ -1,10 +1,10 @@
 @extends('layout.admin-layout')
 @section('main')
-<div class="report-container"  style="display: flex; justify-content: center; width: 650px;">
+<div class="report-container"  style="justify-content: center; width: 650px;">
     
     <div class="report-body" >
         <a class="zoom-modal-close" >
-            <a href="/manage-post-page" class="close" style="display: flex;">
+            <a href="/our-client" class="close" style="display: flex;">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="40" viewBox="0 0 43 54" fill="none">
                     <rect width="43" height="54" fill="url(#pattern0)"/>
                     <defs>
@@ -16,53 +16,30 @@
                 </svg>
             close</a>
         </a>
-        <form method="post" style="width:auto !important" action="{{ route('kontens.update', $kontens->id )}}" enctype="multipart/form-data">
-        {{csrf_field()}} 
-            <h2>Update Content</h2>
+        <form style="width:auto !important" action="{{ route('client.update', $client->id )}}" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <h2>Update Client</h2>
             <div class="form-group">
                 <div class="label">
-                    <label for="judul_konten">Title:</label>
+                    <label for="nama_client">Nama client:</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="judul_konten" id="judul_konten" value="{{ $kontens->judul_konten }}">
-                </div>
-            </div> 
-            <div class="form-group">
-                <div class="label">
-                    <label for="Author">Author:</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="Author" id="Author" value="{{ $kontens->Author }}">
+                    <input type="text" name="nama_client" id="nama_client" value="{{ $client->nama_client }}">
                 </div>
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label for="isi_konten">Content:</label>
-                </div>
-                <div class="input">
-                    <textarea name="isi_konten" id="isi_konten">{{ $kontens->isi_konten }}</textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label for="sumber">Source:</label>
-                </div>
-                <div class="input">
-                    <input type="text" name="sumber" id="sumber" value="{{ $kontens->sumber }}">
-                </div>
-            </div>
-            <div class="form-group">
-                <div div class="label">
                     <label for="image">Image:</label>
                 </div>
                 <div class="input">
-                    <input type="file" name="img_konten"  id="image-modal" >
+                    <input type="file" name="img_logo"  id="image-modal" >
+                    </div>
+                    <div>Selected image: {{$client->img_logo}}</div>
+                
                 </div>
-                <div>Selected image: {{$kontens->img_konten}}</div>
-            
             </div>
-            
-            <input type="hidden" name="user_id" id="user_id" value="{{ $kontens->user_id }}">
+
+            <input type="hidden" name="user_id" id="user_id" value="{{ $client->user_id }}">
             <div style="display: flex; justify-content: center;">
                 <button type="submit" style="background-color: #4582F8; height: 35px; width: 140px; border-style: none; border-radius: 10px; color: white;">Submit</button>
             </div>
