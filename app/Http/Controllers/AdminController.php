@@ -174,5 +174,33 @@ class AdminController extends Controller
         return redirect('/our-client');
         // Redirect or perform additional actions as needed
     }
+    public function ClientEdit($id)
+    {
+        
+        $client = Client::where('id',$id)->first();
+
+        return view('admin.our-clientEdit', compact(['client']));
+    }
+    public function ClientDelete($id)
+    {
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return redirect('/our-client');
+        // Redirect or perform additional actions as needed
+    }
+    public function ClientUpdate(Request $request, $id)
+    {
+        $client = Client::where('id',$id)->first();
+        
+        $client->update($request->all());
+        if($request->hasFile('img_logo')){
+            $request->file('img_logo')->move('images',$request->file('img_logo')->getClientOriginalName());
+            $client->img_logo = $request->file('img_logo')->getClientOriginalName();
+            $client->save();
+            
+        }
+        $client->save();
+        return redirect('/our-client');
+    }
 
 }

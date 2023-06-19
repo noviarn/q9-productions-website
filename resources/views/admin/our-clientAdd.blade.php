@@ -10,7 +10,7 @@
   </div>
   <div class="report-body">
       <div class="container">
-        <h2>Create a New Content</h2>
+        <h2>Create a New Client</h2>
         <form action="{{ route('clients.store') }}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-field">
@@ -27,7 +27,7 @@
           </div>
           <div class="upload-files-container form-field">
               <div class="image-upload">
-                <label for="image" id="image-upload-label">Select Image</label>
+                <label for="image" id="image-upload-label" style="width:500px !important;">Select Image</label>
                 <input type="file" name="img_logo" id="image" onchange="previewImage(event, 'image-preview-container')">
                 
               </div>

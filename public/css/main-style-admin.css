@@ -185,7 +185,7 @@ height: 60px;
 display: flex;
 align-items: center;
 padding: 0 30px 0 20px;
-gap: 20px;
+gap: 35px;
 transition: all 0.1s ease-in-out;
 }
 .nav-option:hover {
@@ -361,8 +361,10 @@ table {
     flex-direction: column;
 }
 	.image-upload {
+	width: 500px;
+    text-align: center;
     position: relative;
-    display: inline-block;
+    display: grid;
     overflow: hidden;
 
   }
@@ -394,7 +396,7 @@ table {
 	width: 100%;
 	padding: 8px;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+	border-radius: 15px;
   }
   
   .input textarea {
@@ -549,7 +551,7 @@ background-color: #eee;
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
-	border-radius: 4px;
+	border-radius: 15px;
 	box-sizing: border-box;
 	font-size: 16px;
   }

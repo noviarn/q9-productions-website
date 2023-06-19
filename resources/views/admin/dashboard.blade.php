@@ -58,24 +58,28 @@
                 </div>
  
                 <div class="" >
-                    <table>
-                    <tr class="report-header report-topic-heading">
-                        <th class="t-op">Judul</th>
-                        <th class="t-op">Author</th>
-                        <th class="t-op">Image</th>
-                        <th class="t-op">Status</th>
-                        <th class="t-op">Action</th>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="t-op column1-content" style="width: 300px">Judul</th>
+                        <th class="t-op column2-content" style="width: 300px;">Author</th>
+                        <th class="t-op column3-content" style="width: 300px;">Image</th>
+                        <th class="t-op column4-content" style="width: 300px;">Status</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     @foreach($kontens as $konten)
                     <tr>
-                        <td class="t-op-nextlvl">{{ $konten->judul_konten }}</td>
-                        <td class="t-op-nextlvl">{{ $konten->Author }}</td>
-                        <td class="t-op-nextlvl"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-                        <td class="t-op-nextlvl">Publish</td>
-                        <td class="t-op-nextlvl"><a href="/manage-post-page/{{$konten->id}}/edit" style="background-color: #F0C965; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; "><img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20"></a><button style="background-color: #F24949; height: 30px; width: 40px; border-style:none; border-radius:10px; "><img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20"></button></td>
+                        <td class="t-op-nextlvl column1-content" style="max-width: 250px;word-wrap: break-word;">{{ $konten->judul_konten }}</td>
+                        <td class="t-op-nextlvl column2-content">{{ $konten->Author }}</td>
+                        <td class="t-op-nextlvl column3-content"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
+                        <td class="t-op-nextlvl column4-content">Publish</td>
+                        
                     </tr>
                     @endforeach
-                    </table>
+                    </tbody>
+                </table>
+
 
 
                 </div>

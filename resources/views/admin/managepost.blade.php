@@ -83,7 +83,7 @@
     <tbody>
       @foreach($kontens as $konten)
       <tr>
-        <td class="t-op-nextlvl column1-content">{{ $konten->judul_konten }}</td>
+        <td class="t-op-nextlvl column1-content" style="max-width: 250px;word-wrap: break-word;">{{ $konten->judul_konten }}</td>
         <td class="t-op-nextlvl column2-content">{{ $konten->Author }}</td>
         <td class="t-op-nextlvl column3-content"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
         <td class="t-op-nextlvl column4-content">Publish</td>
