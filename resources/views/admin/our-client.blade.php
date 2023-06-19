@@ -3,7 +3,7 @@
 <div class="report-container">
   <div class="report-header">
       <h1 class="recent-Articles text-menu">Our Client</h1>
-      <a href="/manage-post-page/add" style="background-color: #11D900; height: 40px !important; border-style:none; border-radius:8px; padding: 10px; display: inline-flex; align-items: center; text-decoration: none;">
+      <a href="/our-client/add" style="background-color: #11D900; height: 40px !important; border-style:none; border-radius:8px; padding: 10px; display: inline-flex; align-items: center; text-decoration: none;">
         <img src="{{ asset('/img/icon-plus.png') }}" style="margin-right: 5px;" width="20" height="20">
         <span style="color: black; font-size: 14px;"><strong>Add Client</strong></span>
       </a>
@@ -44,23 +44,26 @@
       </div>
   </div>
   <table>
-      <tr class="report-header report-topic-heading">
-        <th class="t-op">Logo</th>
-        <th class="t-op">Nama Client</th>
-        <th class="t-op">show</th>
-        <th class="t-op">action</th>
+    <thead>
+      <tr class="">
+        <th class="column1">Logo</th>
+        <th class="column2">Nama Client</th>
+        <th class="column3">show</th>
+        <th class="column4">action</th>
       </tr>
+    </thead>
+    <tbody>
       @foreach($clients as $client)
       <tr>
-        <td class="t-op-nextlvl td-client"><img src="{{ asset('/images/'.$client->img_logo.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-        <td class="t-op-nextlvl td-client">{{ $client->nama_client }}</td>
-        <td class="t-op-nextlvl td-client">
+        <td class="column1-client t-op-nextlvl"><img src="{{ asset('/images/'.$client->img_logo.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
+        <td class="column2-client t-op-nextlvl">{{ $client->nama_client }}</td>
+        <td class="column3-client t-op-nextlvl">
           <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
           </label>
         </td>
-        <td class="t-op-nextlvl td-client">
+        <td class="column4-client t-op-nextlvl">
           <a href="/manage-post-page/{{$client->id}}/edit" style="background-color: #e7e7e7; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
             <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
           </a>
@@ -70,13 +73,10 @@
         </td>
       </tr>
       @endforeach
-    </table>
+    </tbody>
+  </table>
 </div>
-<div class="report-container" >
-    
 
-
-</div>
 @stop
 <script>
  function addclient() {

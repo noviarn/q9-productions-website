@@ -150,6 +150,10 @@ class AdminController extends Controller
         $clients = Client::all();
         return view('admin.our-client', compact('userId', 'clients'));
     }
+    public function ClientAdd(){
+        
+        return view('admin.our-clientAdd');
+    }
     public function storeourClient(Request $request)
     {
         
@@ -167,7 +171,7 @@ class AdminController extends Controller
         }
        Client::create($validatedData);
         
-        return redirect()->back();
+        return redirect('/our-client');
         // Redirect or perform additional actions as needed
     }
 

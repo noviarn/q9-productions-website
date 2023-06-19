@@ -71,30 +71,34 @@
       </div>
   </div> -->
   <table>
-      <tr class="report-header report-topic-heading">
-        <th class="t-op">Judul</th>
-        <th class="t-op">Author</th>
-        <th class="t-op">Image</th>
-        <th class="t-op">Status</th>
-        <th class="t-op">Action</th>
+    <thead>
+      <tr>
+        <th class="t-op column1-content">Judul</th>
+        <th class="t-op column2-content">Author</th>
+        <th class="t-op column3-content">Image</th>
+        <th class="t-op column4-content">Status</th>
+        <th class="t-op column5-content">Action</th>
       </tr>
+    </thead>
+    <tbody>
       @foreach($kontens as $konten)
       <tr>
-        <td class="t-op-nextlvl">{{ $konten->judul_konten }}</td>
-        <td class="t-op-nextlvl">{{ $konten->Author }}</td>
-        <td class="t-op-nextlvl"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
-        <td class="t-op-nextlvl">Publish</td>
-        <td class="t-op-nextlvl">
-          <a href="/manage-post-page/{{$konten->id}}/edit" style="background-color: #F0C965; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
+        <td class="t-op-nextlvl column1-content">{{ $konten->judul_konten }}</td>
+        <td class="t-op-nextlvl column2-content">{{ $konten->Author }}</td>
+        <td class="t-op-nextlvl column3-content"><img src="{{ asset('/images/'.$konten->img_konten.'') }}" style="width: 80px; height: 50px; object-fit: cover;"></td>
+        <td class="t-op-nextlvl column4-content">Publish</td>
+        <td class="t-op-nextlvl column5-content">
+          <a href="/manage-post-page/{{$konten->id}}/edit" style="background-color: #e7e7e7; height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;">
             <img src="{{ asset('/img/icon-edit.png') }}" style="margin:auto;" width="20" height="20">
           </a>
-          <a href="/manage-post-page/{{$konten->id}}/delete" style="background-color: #F24949;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
+          <a href="/manage-post-page/{{$konten->id}}/delete" style="background-color: #e7e7e7;height: 30px !important; width: 40px !important; border-style:none; border-radius:8px; display: inline-flex;" onclick="return confirm('Apakah yakin data akan dihapus?')">
             <img src="{{ asset('/img/icon-remove.png') }}" style="margin:auto;" width="20" height="20">
           </a>
         </td>
       </tr>
       @endforeach
-    </table>
+    </tbody>
+  </table>
 
 </div>
 <!-- <div class="report-container" >
