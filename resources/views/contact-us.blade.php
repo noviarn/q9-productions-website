@@ -24,24 +24,22 @@
         ><img src="{{asset('img/q9-logo-without-text-new.png')}}" alt="Q9 Productions logo"
       /></a>
       <nav class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact-us.html">Contact Us</a>
+        <a href="/">Home</a>
+        <a href="/about" >About</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/contact-us" class="active">Contact Us</a>
       </nav>
-      <div class="nav-search">
-        <i class="search-btn fa-solid fa-magnifying-glass"></i>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search here..." />
-        <i class="close-btn fa-solid fa-xmark"></i>
-      </div>
+      <img
+        class="menu-btn"
+        src="img/icons/dashicons_menu-alt.svg"
+        alt="Menu icon"
+      />
     </header>
     <!-- navbar -->
 
     <!--contact us -->
     <section class="contact-us">
-      <h1>{{$contact->title}}</h1>
+      <h1>Contact Us</h1>
       <div class="container">
         <div class="left-row">
           <div class="contact-info">
@@ -54,7 +52,7 @@
                 />
               </div>
               <div class="text">
-                <a href="tel:+628119847234"> <p>{{$contact->whatsapp}}</p></a>
+                <a href="tel:+628119847234"> <p>+62 811 9847 234</p></a>
               </div>
             </div>
             <div class="box">
@@ -66,7 +64,7 @@
                 />
               </div>
               <div class="text">
-                <a href="mailto:ops.q9p@gmail.com"> <p>{{$contact->email}}</p></a>
+                <a href="mailto:ops.q9p@gmail.com"> <p>ops.q9p@gmail.com</p></a>
               </div>
             </div>
             <div class="box">
@@ -81,7 +79,7 @@
                 <a
                   href="https://www.instagram.com/q9productions"
                   target="”_blank"
-                  ><p>{{$contact->instagram}}</p></a
+                  ><p>@q9productions</p></a
                 >
               </div>
             </div>
@@ -98,7 +96,7 @@
                   href="https://www.facebook.com/q9productions"
                   target="”_blank"
                 >
-                  <p>{{$contact->facebook}}</p></a
+                  <p>Q9 Productions</p></a
                 >
               </div>
             </div>
@@ -113,7 +111,7 @@
         </div>
         <div class="right-row">
           <div class="contact-form">
-            <form action="/contact-us/sendWa" method="post"  target="_blank">
+            <form action="/contact-us/sendWa" method="post"  >
               {{csrf_field()}}
               <h2>Send Message</h2>
               <div class="input-box">

@@ -9,28 +9,32 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        $kontens = Konten::all();
-        return view('home', compact('kontens'));
+        // $kontens = Konten::all();
+        return view('home');
     }
     public function search(Request $request)
 	{
-		// menangkap data pencarian
-		$search = $request->input('search');
+		// // menangkap data pencarian
+		// $search = $request->input('search');
  
-    	// Perform the search query using the input query
-        $results = Konten::where('judul_konten', 'like', '%'.$search.'%')->orWhere('Author', 'like', '%'.$search.'%')->orWhere('isi_konten', 'like', '%'.$search.'%')->get();
+    	// // Perform the search query using the input query
+        // $results = Konten::where('judul_konten', 'like', '%'.$search.'%')->orWhere('Author', 'like', '%'.$search.'%')->orWhere('isi_konten', 'like', '%'.$search.'%')->get();
     		// mengirim data pegawai ke view index
-		return view('result-event', compact(['results']));
+		return view('result-event',);
  
 	}
     public function about(){
-        $kontens = Konten::all();
-        return view('about-us');
+        // $kontens = Konten::all();
+        return view('about');
+    }
+    public function gallery(){
+        // $kontens = Konten::all();
+        return view('gallery');
     }
     public function contact(){
-        $contact = Contact::where('id', 1)->first();
+        // $contact = Contact::where('id', 1)->first();
         
-        return view('contact-us', compact(['contact']));
+        return view('contact-us');
     }
     public function contactPost(Request $request){
         $fullname = $request->fullname;

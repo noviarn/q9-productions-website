@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap");
 
 :root {
-  --q9blue: #0d2887;
+  --q9blue: #01509f;
   --q9light: #eeeeee;
   --q9darker: #666666;
 }
@@ -21,6 +21,20 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--q9darker);
 }
 
 body {
@@ -52,13 +66,14 @@ section {
 }
 
 .navbar .logo img {
-  height: 40px;
+  height: 4rem;
 }
 
 .navbar .nav-links a {
   font-size: 1.5rem;
   font-weight: 500;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
+  /* margin-left: 2rem; */
   color: #000000;
 }
 
@@ -66,9 +81,13 @@ section {
   color: var(--q9blue);
 }
 
-.navbar .menu-btn,
-.navbar .nav-search .search-btn,
-.navbar .search-box .close-btn {
+.navbar .nav-links a.active {
+  font-weight: 700;
+  color: var(--q9blue);
+}
+
+.navbar .menu-btn {
+  display: none;
   font-size: 2rem;
   position: relative;
   justify-content: center;
@@ -78,52 +97,13 @@ section {
   color: #000000;
 }
 
-.navbar .menu-btn {
-  display: none;
-}
-
-.navbar .menu-btn:hover,
-.navbar .nav-search .search-btn:hover,
-.navbar .search-box .close-btn:hover {
-  color: var(--q9blue);
-}
-
-.navbar .nav-search .search-btn.invisible {
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
-}
-
-.navbar .search-box {
-  position: absolute;
-  right: -100%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  background: #ffffff;
-  align-items: center;
-  padding: 2rem 9%;
-  transition: 0.5s ease-in-out;
-}
-
-.navbar .search-box.active {
-  right: 0;
-}
-
-.navbar .search-box input {
-  width: 100%;
-  height: 3rem;
-  font-size: 1.5rem;
-  background: #ffffff;
-}
-
 /* home css */
 
 .home-cover {
   margin: 0 auto;
   margin-top: 8rem;
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), var(--q9blue)),
+  background: linear-gradient(rgba(0, 0, 0, 0.8), var(--q9blue)),
     url(../img/home-cover.jpeg) no-repeat;
   background-position: center;
   background-size: cover;
@@ -139,7 +119,6 @@ section {
 .home-cover .content h3 {
   color: #ffffff;
   font-size: 4vw;
-  font-style: italic;
 }
 
 .home-cover .content p {
@@ -166,7 +145,68 @@ section {
   color: #000000;
 }
 
-.our-events {
+.our-services {
+  height: 22rem;
+  background: var(--q9blue);
+}
+
+.our-services h1 {
+  line-height: 1;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.our-services .container .services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.our-services .container .services-container .service {
+  width: 35rem;
+  height: 25rem;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+
+.our-services .container .services-container .service img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.our-services .container .services-container .service .content {
+  position: absolute;
+  visibility: hidden;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-services .container .services-container .service:hover .content {
+  visibility: visible;
+}
+
+.our-services .service .content h3 {
+  font-size: 2.5rem;
+  color: var(--q9blue);
+  text-transform: uppercase;
+}
+
+/* .our-events {
   height: 32rem;
   background: var(--q9blue);
 }
@@ -245,11 +285,12 @@ section {
 .our-events .container .see-more-btn:hover {
   background: #ffffff;
   color: #000000;
-}
+} */
 
 .our-clients {
-  margin-top: 20rem;
-  min-height: 100vh;
+  margin-top: 15rem;
+  margin-bottom: 2.5rem;
+  min-height: fit-content;
   background: var(--q9light);
 }
 
@@ -261,19 +302,113 @@ section {
   text-align: center;
 }
 
-.our-clients .container {
-  text-align: center;
-}
-
-.our-clients .container img {
-  height: 20rem;
-  margin-left: 2.5rem;
+.our-clients .client {
+  display: flex;
   margin-top: 2.5rem;
+  text-align: center;
+  position: relative;
+  width: 30rem;
+  overflow: hidden;
 }
 
-.our-clients .container img:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+.our-clients .client .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.our-clients .client .content {
+  position: absolute;
+  visibility: hidden;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--q9blue);
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-clients .client:hover .content {
+  visibility: visible;
+}
+
+.our-clients .client .content h3 {
+  font-size: 2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* gallery css */
+
+.gallery-cover {
+  margin: 0 auto;
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../img/gallery-header.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.gallery-cover .content {
+  text-align: center;
+  width: 50rem;
+}
+
+.gallery-cover .content h3 {
+  color: #ffffff;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-cover .content .ig-btn {
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: none;
+  border: 0.2rem solid #ffffff;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  color: #ffffff;
+}
+
+.gallery-cover .content .ig-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.gallery-photos {
+  position: relative;
+  min-height: 100vh;
+}
+
+.gallery-photos .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gallery-photos .content .image {
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-photos .content .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.2s linear;
+}
+
+.gallery-photos .content .image:hover img {
+  transform: scale(1.2);
 }
 
 /* about css */
@@ -316,11 +451,13 @@ section {
   padding-bottom: 2rem;
   font-size: 2vw;
   color: #ffffff;
+  text-align: center;
 }
 
 .about-content .row .content .content-heading span {
   position: relative;
   z-index: 0;
+  padding: 1rem;
 }
 
 .about-content .row .content .content-heading span:before {
@@ -337,14 +474,19 @@ section {
 .about-content .row .content p {
   color: #000000;
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 1.3rem;
   line-height: 1.5;
   text-align: justify;
 }
 
-.about-crew {
+.what-we-do {
   min-height: 100vh;
   background: var(--q9light);
+}
+
+.about-crew {
+  min-height: 100vh;
+  background: #ffffff;
   align-items: center;
 }
 
@@ -377,12 +519,7 @@ section {
   color: var(--q9blue);
 }
 
-.what-we-do {
-  min-height: 100vh;
-  background: #ffffff;
-}
-
-.what-we-do h3 {
+/* .what-we-do h3 {
   line-height: 1;
   font-size: 2vw;
   color: #000000;
@@ -393,16 +530,16 @@ section {
   font-size: 2.5vw;
   color: #000000;
   text-align: center;
-}
+} */
 
 /* gallery css */
 
-.gallery-cover {
+/* .gallery-cover {
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(../img/contact-us-bg.jpeg) no-repeat;
+  background: url(../img/q9-gallery-header.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 17rem;
@@ -430,7 +567,7 @@ section {
 
 .gallery-cover .content .follow-ig-btn:hover {
   background: #8094db;
-}
+} */
 
 /* contact us temp css */
 
@@ -644,10 +781,6 @@ footer p {
     padding: 2rem;
   }
 
-  .navbar .search-box {
-    padding: 2rem;
-  }
-
   .contact-us .container .contact-form {
     height: 100%;
   }
@@ -662,6 +795,10 @@ footer p {
     display: block;
   }
 
+  .navbar .menu-btn:hover {
+    opacity: 70%;
+  }
+
   .navbar .menu-btn.invisible {
     opacity: 0;
     visibility: hidden;
@@ -671,11 +808,11 @@ footer p {
   .navbar .nav-links {
     position: absolute;
     top: 99%;
-    left: 0%;
-    right: 0%;
+    left: 0;
+    right: 0;
     background: #ffffff;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: all 0.5s ease;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: all 0.5s ease-in-out;
   }
 
   .navbar.active {
@@ -689,7 +826,9 @@ footer p {
   .navbar .nav-links a {
     font-size: 2rem;
     margin: 2rem;
+    margin-bottom: 4rem;
     display: block;
+    text-align: right;
   }
 
   .home-cover {
@@ -704,7 +843,16 @@ footer p {
     width: 80%;
   }
 
-  .our-events {
+  .our-services {
+    height: auto;
+  }
+
+  .our-services .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* .our-events {
     height: auto;
   }
 
@@ -728,7 +876,7 @@ footer p {
   .our-events .right-row {
     grid-template-columns: 1fr 1fr;
     gap: 0.7rem;
-  }
+  } */
 
   .our-clients {
     margin-top: 0;
@@ -736,6 +884,10 @@ footer p {
 
   .our-clients h1 {
     font-size: 5vw;
+  }
+
+  .our-clients .client .content h3 {
+    font-size: 1.5rem;
   }
 
   .about-content .heading,
@@ -758,6 +910,6 @@ footer p {
 
 @media (max-width: 450px) {
   html {
-    font-size: 50%;
+    font-size: 45%;
   }
 }

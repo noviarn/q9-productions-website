@@ -1,29 +1,23 @@
-let searchBtn = document.querySelector(".search-btn");
-let closeBtn = document.querySelector(".close-btn");
 let menuBtn = document.querySelector(".menu-btn");
-let searchBox = document.querySelector(".search-box");
 let navbar = document.querySelector(".navbar");
 let navbarLinks = document.querySelector(".nav-links");
-
-// navbar search js
-
-searchBtn.onclick = function () {
-  searchBox.classList.add("active");
-  searchBtn.classList.add("invisible");
-  menuBtn.classList.add("invisible");
-};
-
-closeBtn.onclick = function () {
-  searchBox.classList.remove("active");
-  searchBtn.classList.remove("invisible");
-  menuBtn.classList.remove("invisible");
-};
 
 // navbar menu js
 
 menuBtn.onclick = () => {
   navbarLinks.classList.toggle("active");
 };
+
+$(document).ready(function () {
+  // this part disables the right click
+  $(menuBtn).on("contextmenu", function (e) {
+    return false;
+  });
+  //this part disables dragging of image
+  $(menuBtn).on("dragstart", function (e) {
+    return false;
+  });
+});
 
 window.onscroll = () => {
   if (window.scrollY > 0) {
@@ -32,6 +26,29 @@ window.onscroll = () => {
     navbar.classList.remove("active");
   }
 };
+
+// home our clients slider js
+
+var swiper = new Swiper(".our-clients-slider", {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 20,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    991: {
+      slidesPerView: 5,
+    },
+  },
+});
 
 // open close modal js
 var modal = document.getElementById("modal-container");
