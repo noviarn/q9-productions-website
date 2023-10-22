@@ -394,42 +394,10 @@ section {
 }
 
 .gallery-photos .content .image {
-  height: 148px;
-  width: 265px;
+  height: 250px;
+  width: 250px;
   overflow: hidden;
   cursor: pointer;
-
-}
-.row-2 {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.gallery-photos .content .image-pinned {
-  height: 308px;
-  overflow: hidden;
-  cursor: pointer;
-  flex: 1;
-  margin: 0 10px;
-  min-width: calc(50% - 20px);
-
-}
-@media (max-width: 768px) {
-  .row-2 {
-    flex-direction: column; /* Stack columns in a single column for smaller screens */
-  }
-
-  .image-pinned {
-    flex: none !important;
-    min-width: auto !important;
-    margin: 0 !important;
-    height: 204px !important;
-    margin-bottom: 10px !important;
-  }
-  .gallery-photos .content .image-pinned .instagram-media{
-    min-width: 362px !important;
-  }
-  
 }
 
 .gallery-photos .content .image img {
@@ -441,6 +409,48 @@ section {
 
 .gallery-photos .content .image:hover img {
   transform: scale(1.2);
+}
+
+.row-pinned {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-pinned {
+  flex: 1;
+  margin: 0 10px;
+  height: 520px;
+  width: 520px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.gallery-photos .content .row-pinned .image-pinned img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.2s linear;
+}
+
+.gallery-photos .content .row-pinned .image-pinned:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 500px) {
+  .row-pinned {
+    flex-direction: column;
+  }
+
+  .image-pinned {
+    flex: none !important;
+    min-width: auto !important;
+    margin: 0 !important;
+    margin-bottom: 10px !important;
+    height: 320px !important;
+    width: 320px !important;
+  }
+  
 }
 
 /* about css */
