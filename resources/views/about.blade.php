@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="q9production adalah para profesional yang sangat berpengalaman dan ahli di bidang rental equipments, solution and supports untuk berbagai event nasional dan internasional">
+    <meta name="keywords" content="rental equipments, solution, supports">
     <title>Q9 Productions | About</title>
     <link href="img/favicon.png" rel="shortcut icon" type="image/png" />
     <link
